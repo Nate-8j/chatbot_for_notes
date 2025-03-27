@@ -1,24 +1,24 @@
-# сhatbot for Notes
+# # chatbot for Notes
 
-## Описание
-Этот бот предназначен для сохранения учебных конспектов в структурированном виде. 
-Пока только для одного класса. Делал как проект для школы.
+## Description
+This bot is designed to save study notes in a structured way. 
+So far, only for one class. I did it as a project for the school.
 
-## Структура проекта
-- `main.py`: Основной код бота.
-- `psql_for_bot`: SQL-скрипты для базы данных.
-- `repository.py`: Модуль для работы с базой данных.
+## Project structure
+- `main.py `: The main code of the bot.
+- `psql_for_bot': SQL scripts for the database.
+- `repository.py `: A module for working with a database.
 
-## Установка
-1. Клонируйте репозиторий:
+## Installation
+1. Clone the repository:
    ```bash
    git clone https://github.com/Nate-8j/chatbot_for_notes.git
-2. Установите зависимости:
-   ```bash
+2. Install the dependencies:
+``bash
    pip install telebot psycopg2
 
-## Лицензия
-Этот проект распространяется под лицензией GPL-3.0.
+## License
+This project is distributed under the GPL-3.0 license.
 
-## Контакты
-Если у вас есть вопросы или предложения, пишите мне: почта - [iakov7548@gmail.com] телеграмм - [@jn_7548].
+## Contacts
+If you have any questions or suggestions, write to me: mail - [iakov7548@gmail.com ] telegram - [@jn_7548].
