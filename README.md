@@ -6,7 +6,7 @@ So far, only for one class. I did it as a project for the school.
 
 ## Project structure
 - `main.py `: The main code of the bot.
-- `psql_for_bot': SQL scripts for the database.
+- `psql_for_bot`: SQL scripts for the database.
 - `repository.py `: A module for working with a database.
 
 ## Installation
