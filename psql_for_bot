@@ -1,0 +1,68 @@
+import psycopg
+
+try:
+    with psycopg.connect(
+        dbname="***",
+        user="***",
+        password="***",
+        host="***",
+        port="***"
+    ) as conn:
+        with conn.cursor() as cursor:
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS subjects (
+                    id SERIAL PRIMARY KEY,
+                    name TEXT NOT NULL
+                )
+            ''')
+
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS topics (
+                    id SERIAL PRIMARY KEY,
+                    subject_id INTEGER,
+                    name TEXT NOT NULL,
+                    FOREIGN KEY (subject_id) REFERENCES subjects (id)
+                )
+            ''')
+
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS abstracts (
+                    id SERIAL PRIMARY KEY,
+                    topic_id INTEGER,
+                    user_id BIGINT,
+                    FOREIGN KEY (topic_id) REFERENCES topics (id)
+                )
+            ''')
+
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS photos (
+                    id SERIAL PRIMARY KEY,
+                    abstract_id INTEGER,
+                    photo_path TEXT NOT NULL,
+                    FOREIGN KEY (abstract_id) REFERENCES abstracts (id)
+                )
+            ''')
+
+
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS users (
+                    id BIGSERIAL PRIMARY KEY,
+                    topic_id INTEGER,
+                    abstract_id INTEGER,
+                    state TEXT
+                )
+            ''')
+
+
+            cursor.execute('''
+                CREATE TABLE IF NOT EXISTS additionally (
+                    id SERIAL PRIMARY KEY,
+                    class_name TEXT,
+                    schedule_path TEXT
+                )
+            ''')
+
+            conn.commit()
+
+except Exception as e:
+    print(f"Ошибка: {e}")
